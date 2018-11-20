@@ -1,0 +1,19 @@
+// ext 用于定义动态属性
+ext {
+    versions = [
+            springBootVersion: '2.1.0.RELEASE'
+    ]
+    libs = [
+            // 该依赖用于编译阶段
+            actuator  : ["org.springframework.boot:spring-boot-starter-actuator"],
+            devtools  : ["org.springframework.boot:spring-boot-devtools"],
+            redis  : ["org.springframework.boot:spring-boot-starter-data-redis"],
+            lombok    : ["org.projectlombok:lombok"],
+            httpclient: ["org.apache.httpcomponents:httpclient:4.5.3"],
+            // 该依赖用于测试阶段
+            test      : [
+                    "org.springframework.boot:spring-boot-starter-test"
+
+            ]
+    ]
+}

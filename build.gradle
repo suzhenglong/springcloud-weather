@@ -1,0 +1,56 @@
+import com.sun.org.apache.xalan.internal.xsltc.cmdline.Compile
+
+// buildscript 代码块中脚本优先执行
+buildscript {
+    // 使用了Maven的中央仓库及Spring自己的仓库（也可以指定其他仓库）
+    repositories {
+        // mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    }
+    // 依赖关系
+    dependencies {
+        // classpath 声明了在执行其余的脚本时，ClassLoader 可以使用这些依赖项
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.0.RELEASE")
+        classpath('org.springframework:springloaded:1.2.8.RELEASE')
+    }
+}
+
+apply from: "$rootDir/dependencies.gradle"
+
+// 指定了生成的编译文件的版本，默认是打成了 jar 包
+group 'com.csii'
+version '1.0.0'
+
+// 配置这个项目的子项目。这个方法对这个项目的每个子项目执行给定的闭包。目标项目作为闭包的委托传递给闭包
+subprojects {
+    // 使用插件
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    // 指定编译 .java 文件的 JDK 版本
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    // 使用了Maven的中央仓库及Spring自己的仓库（也可以指定其他仓库）
+    repositories {
+        mavenLocal()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenCentral()
+    }
+    // 依赖关系
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-web') {
+            exclude module: "spring-boot-starter-logging"
+        }
+        compile libs.actuator
+        compile libs.devtools
+        compile libs.lombok
+        testCompile libs.test
+    }
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+}
