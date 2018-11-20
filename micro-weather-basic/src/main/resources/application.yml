@@ -1,0 +1,7 @@
+server:
+  port: 9000
+
+
+# 测试
+# http://localhost:9000/weather/cityId/101280601
+# http://localhost:9000/weather/cityName/深圳
