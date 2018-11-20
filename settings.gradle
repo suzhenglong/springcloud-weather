@@ -2,4 +2,5 @@ rootProject.name = 'springcloud-weather'
 include 'hello-world'
 include 'micro-weather-basic'
 include 'micro-weather-redis'
+include 'micro-weather-quartz'
 

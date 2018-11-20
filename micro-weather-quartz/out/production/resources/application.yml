@@ -1,0 +1,10 @@
+server:
+  port: 9000
+
+spring:
+  redis:
+    host: 192.168.121.181
+
+# 测试
+# http://localhost:9000/weather/cityId/101280601
+# http://localhost:9000/weather/cityName/深圳
