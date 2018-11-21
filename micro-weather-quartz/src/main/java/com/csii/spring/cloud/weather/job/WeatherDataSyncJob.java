@@ -38,6 +38,7 @@ public class WeatherDataSyncJob extends QuartzJobBean {
 
         //遍历城市信息ID获取天气
         for (City city : cities) {
+            log.info("同步的城市Id:{},城市名字:{}", city.getCityId(), city.getCityName());
             weatherDataService.syncDateByCityId(city.getCityId());
         }
 

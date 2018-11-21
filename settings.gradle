@@ -5,4 +5,5 @@ include 'micro-weather-redis'
 include 'micro-weather-quartz'
 include 'micro-weather-report'
 include 'msa-weather-collection-server'
+include 'msa-weather-data-server'
 

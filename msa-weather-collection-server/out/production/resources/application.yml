@@ -1,9 +1,10 @@
 server:
-  port: 9000
+  port: 9001
 
 spring:
   redis:
     host: 192.168.121.181
 
+# 天气数据采集微服务
 # 测试
-# http://localhost:9000/report/cityId/101280601
+# 查看redis中的数据
