@@ -1,0 +1,5 @@
+dependencies {
+    compile libs.httpclient
+    compile libs.redis
+    compile libs.quartz
+}

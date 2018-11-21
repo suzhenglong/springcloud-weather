@@ -9,6 +9,7 @@ ext {
             devtools  : ["org.springframework.boot:spring-boot-devtools"],
             redis     : ["org.springframework.boot:spring-boot-starter-data-redis"],
             quartz    : ["org.springframework.boot:spring-boot-starter-quartz"],
+            thymeleaf : ["org.springframework.boot:spring-boot-starter-thymeleaf"],
             lombok    : ["org.projectlombok:lombok"],
             httpclient: ["org.apache.httpcomponents:httpclient:4.5.3"],
             // 该依赖用于测试阶段
