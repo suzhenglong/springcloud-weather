@@ -1,0 +1,14 @@
+server:
+  port: 9003
+
+spring:
+  redis:
+    host: 192.168.121.181
+  thymeleaf:
+    cache: false             # 热部署静态文件
+
+
+# 天气预报微服务
+
+# 测试
+# http://localhost:9003/report/cityId/101280601

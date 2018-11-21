@@ -6,9 +6,4 @@ spring:
     host: 192.168.121.181
 
 # 天气数据API微服务
-
-
-# http://localhost:9002/weather/cityId/101210904
-# http://localhost:9002/weather/cityName/义乌
-# 抛出异常
-# http://localhost:9002/weather/cityName/深圳
+# http://localhost:9002/weather/cityId/101280601
