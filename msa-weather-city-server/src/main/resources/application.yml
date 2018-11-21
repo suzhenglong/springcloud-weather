@@ -1,0 +1,5 @@
+server:
+  port: 9004
+
+# 城市数据API微服务
+# http://localhost:9004/cities
