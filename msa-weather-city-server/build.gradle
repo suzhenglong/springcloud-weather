@@ -1,0 +1,4 @@
+dependencies {
+    compile libs.actuator
+    compile libs.lombok
+}

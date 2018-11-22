@@ -1,0 +1,14 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: localhost            #eureka服务端的实例名称
+  client:
+    registerWithEureka: false     #是否向注册中心注册自己。默认true
+    fetchRegistry: false          #是否从注册中心获取注册信息 默认true 此处为单节点 不需要同步其他的注册节点的数据,故设置值为false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址（单机）,多个用,分隔
+
+
+#测试
+# http://localhost:8761/

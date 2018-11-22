@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: msb-weather-eureka-client
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: msb-weather-eureka-client #每个项目唯一
+    prefer-ip-address: true     #访问路径可以显示IP地址

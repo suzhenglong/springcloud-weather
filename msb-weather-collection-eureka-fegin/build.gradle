@@ -1,0 +1,9 @@
+dependencies {
+    compile libs.actuator
+    compile libs.lombok
+    compile libs.httpclient
+    compile libs.redis
+    compile libs.quartz
+    compile libs.eurekaClient
+    compile libs.openfeign
+}

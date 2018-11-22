@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CollecServerApplication {
+public class CollectionServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CollecServerApplication.class, args);
+        SpringApplication.run(CollectionServerApplication.class, args);
     }
 }

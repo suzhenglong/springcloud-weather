@@ -1,19 +1,19 @@
 // ext 用于定义动态属性
 ext {
-    versions = [
-            springBootVersion: '2.1.0.RELEASE'
-    ]
     libs = [
             // 该依赖用于编译阶段
-            actuator  : ["org.springframework.boot:spring-boot-starter-actuator"],
-            devtools  : ["org.springframework.boot:spring-boot-devtools"],
-            redis     : ["org.springframework.boot:spring-boot-starter-data-redis"],
-            quartz    : ["org.springframework.boot:spring-boot-starter-quartz"],
-            thymeleaf : ["org.springframework.boot:spring-boot-starter-thymeleaf"],
-            lombok    : ["org.projectlombok:lombok"],
-            httpclient: ["org.apache.httpcomponents:httpclient:4.5.3"],
+            actuator    : ["org.springframework.boot:spring-boot-starter-actuator"],
+            devtools    : ["org.springframework.boot:spring-boot-devtools"],
+            redis       : ["org.springframework.boot:spring-boot-starter-data-redis"],
+            quartz      : ["org.springframework.boot:spring-boot-starter-quartz"],
+            thymeleaf   : ["org.springframework.boot:spring-boot-starter-thymeleaf"],
+            eurekaServer: ["org.springframework.cloud:spring-cloud-starter-netflix-eureka-server"],
+            eurekaClient: ["org.springframework.cloud:spring-cloud-starter-netflix-eureka-client"],
+            openfeign       : ["org.springframework.cloud:spring-cloud-starter-openfeign"],
+            lombok      : ["org.projectlombok:lombok"],
+            httpclient  : ["org.apache.httpcomponents:httpclient:4.5.3"],
             // 该依赖用于测试阶段
-            test      : [
+            test        : [
                     "org.springframework.boot:spring-boot-starter-test"
 
             ]

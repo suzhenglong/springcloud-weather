@@ -2,11 +2,9 @@ package com.csii.spring.cloud.weather.config;
 
 import com.csii.spring.cloud.weather.job.WeatherDataSyncJob;
 import org.quartz.*;
-import org.springframework.boot.task.TaskSchedulerBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.concurrent.TimeUnit;
 
 /**
  * @Description:

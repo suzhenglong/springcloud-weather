@@ -1,8 +1,10 @@
-import com.sun.org.apache.xalan.internal.xsltc.cmdline.Compile
-
 // buildscript 代码块中脚本优先执行
 buildscript {
     // 使用了Maven的中央仓库及Spring自己的仓库（也可以指定其他仓库）
+    ext {
+        springBootVersion = '2.0.6.RELEASE'
+        springCloudVersion = 'Finchley.SR2'
+    }
     repositories {
         // mavenCentral()
         maven { url "https://repo.spring.io/snapshot" }
@@ -12,8 +14,24 @@ buildscript {
     // 依赖关系
     dependencies {
         // classpath 声明了在执行其余的脚本时，ClassLoader 可以使用这些依赖项
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.0.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath('org.springframework:springloaded:1.2.8.RELEASE')
+    }
+}
+
+allprojects {
+    repositories {
+        // mavenCentral()
+        /**
+         * mavenCentral： maven中央仓库（http://repo1.maven.org/maven2/）是由Sonatype公司提供的服务，它是Apache Maven、SBT和其他构建系统的默认仓库，并能很容易被Apache Ant/Ivy、Gradle和其他工具所使用。开源组织例如Apache软件基金会、Eclipse基金会、JBoss和很多个人开源项目都将构件发布到中央仓库
+         */
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    }
+    //指定编码格式
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
     }
 }
 
@@ -25,6 +43,7 @@ version '1.0.0'
 
 // 配置这个项目的子项目。这个方法对这个项目的每个子项目执行给定的闭包。目标项目作为闭包的委托传递给闭包
 subprojects {
+    // https://plugins.gradle.org/ 可查询具体plugin插件作用
     // 使用插件
     apply plugin: 'java'
     apply plugin: 'idea'
@@ -47,10 +66,14 @@ subprojects {
         compile('org.springframework.boot:spring-boot-starter-web') {
             exclude module: "spring-boot-starter-logging"
         }
-        compile libs.actuator
         compile libs.devtools
-        compile libs.lombok
         testCompile libs.test
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
     }
     [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 }

@@ -1,0 +1,6 @@
+dependencies {
+    compile libs.actuator
+    compile libs.lombok
+    compile libs.redis
+    compile libs.eurekaClient
+}
