@@ -22,6 +22,6 @@ feign:
         connectTimeout: 5000
         readTimeout: 5000
 
-# 天气数据采集微服务
+# 天气数据采集微服务 通过城市数据  定时获取天气信息  并存储在redis中
 # 测试
 # 查看redis中的数据

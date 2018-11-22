@@ -1,0 +1,22 @@
+server:
+  port: 9005
+
+spring:
+  application:
+    name: msb-weather-eureka-client-zuul
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: msb-weather-eureka-client-zuul #每个项目唯一
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+zuul:
+  routes:
+    city:
+      path: /city/**
+      serviceId: msb-weather-city-eureka
+    data:
+      path: /data/**
+      serviceId: msb-weather-data-eureka

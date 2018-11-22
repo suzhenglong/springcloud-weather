@@ -16,5 +16,5 @@ eureka:
     prefer-ip-address: true     #访问路径可以显示IP地址
 
 
-# 天气数据API微服务
+# 天气数据API微服务  从redis中获取天气信息
 # http://localhost:9002/weather/cityId/101280601

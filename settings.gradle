@@ -14,4 +14,6 @@ include 'msb-weather-data-eureka'
 include 'msb-weather-city-eureka'
 include 'msb-weather-collection-eureka-fegin'
 include 'msb-weather-report-eureka-fegin'
+include 'msb-weather-eureka-client-zuul'
+include 'msb-weather-report-eureka-fegin-zuul'
 
