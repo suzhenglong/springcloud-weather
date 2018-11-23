@@ -1,0 +1,23 @@
+server:
+  port: 9008
+
+spring:
+  application:
+    name: msb-weather-eureka-client-feign-hystrix
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: msb-weather-eureka-client-feign-hystrix  #每个项目唯一
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+feign:
+  client:
+    config:
+      feignName:
+        connectTimeout: 5000
+        readTimeout: 5000
+
+#

@@ -1,0 +1,5 @@
+dependencies {
+    compile libs.eurekaClient
+    compile libs.openfeign
+    compile libs.hystrix
+}

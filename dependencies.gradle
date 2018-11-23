@@ -11,6 +11,9 @@ ext {
             eurekaClient: ["org.springframework.cloud:spring-cloud-starter-netflix-eureka-client"],
             openfeign   : ["org.springframework.cloud:spring-cloud-starter-openfeign"],
             zuul        : ["org.springframework.cloud:spring-cloud-starter-netflix-zuul"],
+            config      : ["org.springframework.cloud:spring-cloud-config-server"],
+            configClient: ["org.springframework.cloud:spring-cloud-starter-config"],
+            hystrix     : ["org.springframework.cloud:spring-cloud-starter-netflix-hystrix"],
             lombok      : ["org.projectlombok:lombok"],
             httpclient  : ["org.apache.httpcomponents:httpclient:4.5.3"],
             // 该依赖用于测试阶段

@@ -16,5 +16,5 @@ public interface CityDataService {
      * @return
      * @throws Exception
      */
-    List<City> listCity() throws Exception;
+    List<City> listCity();
 }

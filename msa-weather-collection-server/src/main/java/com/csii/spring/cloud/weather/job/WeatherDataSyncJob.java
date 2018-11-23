@@ -28,21 +28,19 @@ public class WeatherDataSyncJob extends QuartzJobBean {
         // 获取城市ID列表
         // TODO 改为由城市数据API微服务来提供数据
         List<City> cityList = null;
-        try {
 
-            // TODO 改为由城市数据API微服务提供数据
-            cityList = new ArrayList<>();
-            City city = new City();
-            city.setCityId("101280601");
-            city.setCityName("深圳");
-            cityList.add(city);
 
-        } catch (Exception e) {
-            log.error("Exception!", e);
-        }
+        // TODO 改为由城市数据API微服务提供数据
+        cityList = new ArrayList<>();
+        City city = new City();
+        city.setCityId("101280601");
+        city.setCityName("深圳");
+        cityList.add(city);
+
+
         //遍历城市信息ID获取天气
-        for (City city : cityList) {
-            log.info("同步的城市Id:{},城市名字:{}" ,city.getCityId(),city.getCityName());
+        for (City c : cityList) {
+            log.info("同步的城市Id:{},城市名字:{}", c.getCityId(), c.getCityName());
             weatherDataCollectionService.syncDateByCityId(city.getCityId());
         }
 

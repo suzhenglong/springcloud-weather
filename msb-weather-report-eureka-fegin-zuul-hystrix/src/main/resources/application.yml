@@ -1,0 +1,36 @@
+server:
+  port: 9003
+
+spring:
+  application:
+    name: msb-weather-report-eureka-fegin-zuul-hystrix
+  redis:
+    host: 192.168.121.181
+  thymeleaf:
+    cache: false             # 热部署静态文件
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instance-id: msb-weather-report-eureka-fegin-zuul-hystrix #每个项目唯一
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+feign:
+  client:
+    config:
+      feignName:
+        connectTimeout: 5000
+        readTimeout: 5000
+  hystrix:
+    enabled: true
+
+# msb-weather-eureka-server
+# msb-weather-city-eureka
+# msb-weather-collection-eureka-fegin
+# msb-weather-data-eureka
+# msb-weather-eureka-client-zuul
+# 天气预报微服务
+# 测试
+# http://localhost:9003/report/cityId/101280601

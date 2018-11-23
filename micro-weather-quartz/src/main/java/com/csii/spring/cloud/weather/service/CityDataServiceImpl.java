@@ -20,21 +20,28 @@ import java.util.List;
 public class CityDataServiceImpl implements CityDataService {
 
     @Override
-    public List<City> listCity() throws Exception {
+    public List<City> listCity() {
         // 读取XML文件
-        Resource resource = new ClassPathResource("citylist.xml");
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(resource.getInputStream(), "utf-8"));
-        StringBuffer stringBuffer = new StringBuffer();
-        String line = "";
+        CityList cityList = null;
+        try {
+            Resource resource = new ClassPathResource("citylist.xml");
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(resource.getInputStream(), "utf-8"));
+            StringBuffer stringBuffer = new StringBuffer();
+            String line = "";
 
-        while ((line = bufferedReader.readLine()) != null) {
-            stringBuffer.append(line);
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuffer.append(line);
+            }
+
+            bufferedReader.close();
+
+            // XML转为Java对象
+            cityList = (CityList) XmlBuilder.xmlStrToOject(CityList.class, stringBuffer.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-        bufferedReader.close();
 
-        // XML转为Java对象
-        CityList cityList = (CityList) XmlBuilder.xmlStrToOject(CityList.class, stringBuffer.toString());
         return cityList.getCityList();
     }
 

@@ -1,0 +1,8 @@
+dependencies {
+    compile libs.actuator
+    compile libs.lombok
+    compile libs.thymeleaf
+    compile libs.eurekaClient
+    compile libs.openfeign
+    compile libs.hystrix
+}
