@@ -38,7 +38,7 @@ allprojects {
 apply from: "$rootDir/dependencies.gradle"
 
 // 指定了生成的编译文件的版本，默认是打成了 jar 包
-group 'com.csii'
+group 'com.suzl'
 version '1.0.0'
 
 // 配置这个项目的子项目。这个方法对这个项目的每个子项目执行给定的闭包。目标项目作为闭包的委托传递给闭包
